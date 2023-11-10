@@ -77,7 +77,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>message.HttpServerVerticle</mainClass>
+                                    <mainClass>com.nr.vertx.message.HttpServerVerticle</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
