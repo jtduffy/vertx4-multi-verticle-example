@@ -10,7 +10,7 @@
 
     <properties>
         <!-- changing this to 3.4.2 will break the multipart test -->
-        <vertx.version>4.3.2</vertx.version>
+        <vertx.version>4.5.9</vertx.version>
     </properties>
 
     <dependencies>
@@ -38,6 +38,16 @@
             <groupId>com.newrelic.agent.java</groupId>
             <artifactId>newrelic-api</artifactId>
             <version>8.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-pg-client</artifactId>
+            <version>${vertx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>1.19.8</version>
         </dependency>
     </dependencies>
 
