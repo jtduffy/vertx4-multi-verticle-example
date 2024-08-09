@@ -10,7 +10,7 @@
 
     <properties>
         <!-- changing this to 3.4.2 will break the multipart test -->
-        <vertx.version>4.5.9</vertx.version>
+        <vertx.version>4.4.2</vertx.version>
     </properties>
 
     <dependencies>

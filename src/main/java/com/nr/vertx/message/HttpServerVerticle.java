@@ -9,8 +9,11 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.sqlclient.Row;
 
+import java.util.Random;
+
 public class HttpServerVerticle extends AbstractVerticle {
     private PgRepository pgRepository;
+    private Random rnd = new Random();
 
     public HttpServerVerticle(PgRepository pgRepository) {
         this.pgRepository = pgRepository;
@@ -74,9 +77,10 @@ public class HttpServerVerticle extends AbstractVerticle {
     }
 
     private void saveNewRow(RoutingContext routingContext) {
-        pgRepository.saveNewRow(routingContext.request().getParam("name")).onComplete(ar -> {
+        Long id = rnd.nextLong();
+        pgRepository.saveNewRow(id, routingContext.request().getParam("name")).onComplete(ar -> {
             if (ar.succeeded()) {
-                routingContext.response().end("Saved new row with id: " + ar.result() + "\n");
+                routingContext.response().end("Saved new row with id: " + id + "\n");
             } else {
                 routingContext.response().end("Failed to save data to Postgres");
             }
